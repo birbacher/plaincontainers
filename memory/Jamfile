@@ -1,0 +1,7 @@
+project memory
+	: requirements
+		<include>..
+	;
+
+lib memory : [ glob-tree *.cpp ] /boost//headers ;
+

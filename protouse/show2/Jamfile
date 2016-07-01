@@ -1,0 +1,11 @@
+project show2
+	;
+
+exe show2 : [ glob *.cpp ]
+	/newcontainers//containers
+	;
+
+install dist : show2/<link>static : <location>dist ;
+
+alias app : show2 ;
+

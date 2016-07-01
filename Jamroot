@@ -1,0 +1,28 @@
+project newcontainers
+	: requirements
+		<include>.
+	;
+
+import testing ;
+import boost ;
+boost.use-project ;
+
+run [ glob-tree *.cpp : protouse ]
+	/boost//unit_test_framework
+	: #arguments
+	: #input-files
+	: #requirements
+	#<testing.launcher>"valgrind --error-exitcode=1 --leak-check=full"
+	;
+
+alias containers
+	: #sources
+	: #req
+	: #default
+	: #use-req
+	#<include>. #already done
+	<source>memory//memory
+	;
+
+alias proto : protouse//all ;
+
